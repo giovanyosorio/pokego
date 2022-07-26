@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POKEGO</title>
+    <script src="./js/script.js"></script>
 </head>
+
 <body>
-    <h1>POKEGO 💥💧🌵</h1>
-   <p><button>FIRE  🔥</button></p> 
+    <h1>POKEGO 💥💧🌱</h1>
+ 
+    <section id="select-pet"> 
+        <h2> Elige tu mascota : </h2>
+        
+        <label for="Hipodoge">Hipodoge</label>
+        <input type="radio" name="mascota" id="Hipodoge" >
+
+        <label for="Capipeyo">Capipeyo</label>
+        <input type="radio" name="mascota" id="Capipeyo" >
+
+        <label for="Ratigueya">Ratigueya</label>
+        <input type="radio" name="mascota" id="Ratigueya" >
+
+        <label for="Langostelvis">Langostelvis</label>
+        <input type="radio" name="mascota" id="Langostelvis" >
+
+        <label for="Tupacalma">Tupacalma</label>
+        <input type="radio" name="mascota" id="Tupacalma" >
+
+        <label for="Pydos">Pydos</label>
+        <input type="radio" name="mascota" id="Pydos" >
+ 
+        <button id="btn-pet"> Selecccionar</button>
+
+    </section>
+
+    <section id="select attack">
+        <h2> Elige tu Ataque : </h2>
+
+        <p> tu mascota tiene <span>3</span> vidas</p>
+        <p> tu mascota enemigo tiene <span>3</span> vidas</p>
+        <p>
+            <button id="btn-fire">FIRE 🔥</button>
+            <button id="btn-water">WATER 💦</button>
+            <button id="btn-ground">GROUND 🌱</button>
+            <button id="btn-thunder">TRUENO ⚡</button>
+        </p>
+    </section>
+
+    <section id="mensajes">
+        <p>u mascota atacó con FUEGO🔥, la mascota del enemigo atacó con TIERRA🌱 - GANASTE🎇</p>
+    </section>
+
+    <section id="reiniciar">  
+        <button id="btn-restart">Reiniciar⛔</button> 
+     </section>
 </body>
+
 </html>
