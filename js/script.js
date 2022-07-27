@@ -1,5 +1,5 @@
 
-let ataqueJugador, ataqueEnemigo
+let ataqueJugador, ataqueEnemigo,vidasEnemigo=3,vidasJugador=3
 function seleccionarMascota() {
     let hypodoge = document.getElementById("Hipodoge")
     let Capipeyo = document.getElementById("Capipeyo")
@@ -108,17 +108,40 @@ btn_mascota.addEventListener('click',seleccionarMascota)
 }
 
 function combate() {
+    let spanVidasjugador = document.getElementById("vidas_jugador")
+    let spanVidasEnemigos = document.getElementById("vidas_enemigo")
+
     if (ataqueJugador==ataqueEnemigo  ) {
+        spanVidasjugador.innerHTML=vidasJugador
+        spanVidasEnemigos.innerHTML=vidasEnemigo
         crearMensaje("Empataste")
      }     else if(ataqueJugador=="FUEGO" && ataqueEnemigo=="TIERRA"){
+        vidasJugador++
+        vidasEnemigo--
+        spanVidasjugador.innerHTML=vidasJugador
+        spanVidasEnemigos.innerHTML=vidasEnemigo
         crearMensaje("GANASTE")
+        
      }       else if(ataqueJugador=="AGUA" && ataqueEnemigo=="FUEGO"){
         crearMensaje("GANASTE")
+        vidasJugador++
+        vidasEnemigo--
+        spanVidasjugador.innerHTML=vidasJugador
+        spanVidasEnemigos.innerHTML=vidasEnemigo
      }      else if(ataqueJugador=="TIERRA" && ataqueEnemigo=="AGUA"){
         crearMensaje("GANASTE")
+        vidasJugador++
+        vidasEnemigo--
+        spanVidasjugador.innerHTML=vidasJugador
+        spanVidasEnemigos.innerHTML=vidasEnemigo
      } else {
         crearMensaje("PERDISTE")
+        vidasJugador--
+        vidasEnemigo++
+        spanVidasjugador.innerHTML=vidasJugador
+        spanVidasEnemigos.innerHTML=vidasEnemigo
      }
+ 
 }
 
 
