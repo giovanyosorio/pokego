@@ -1,5 +1,5 @@
 
-
+let ataqueJugador
 function seleccionarMascota() {
     let hypodoge = document.getElementById("Hipodoge")
     let Capipeyo = document.getElementById("Capipeyo")
@@ -47,22 +47,42 @@ function seleccionarMascotaEnemigo() {
          alert('No se selecciono ataque')
      }
 }
+
+function ataqueFuego() {
+    ataqueJugador="FUEGO"
+}
+function ataqueAgua() {
+    ataqueJugador="AGUA"
+}
+function ataqueTierra() {
+    ataqueJugador="TIERRA"
+}
+function ataqueTrueno() {
+    ataqueJugador="TRUENO"
+}
 function aleatorio(min,max) {
     return  Math.floor(Math.random()*(max-min+1)+min)
 }
 
-function iniciarJuego(mascota) {
+function iniciarJuego() {
     let btn_mascota = document.getElementById("btn-pet")
-    
+
     let btn_fuego = document.getElementById("btn-fire")
+    btn_fuego.addEventListener("click",ataqueFuego)
+
     let btn_agua = document.getElementById("btn-water")
+    btn_agua.addEventListener("click",ataqueAgua)
+
     let btn_tierra= document.getElementById("btn-ground")
+    btn_tierra.addEventListener("click",ataqueTierra)
+
     let btn_trueno= document.getElementById("btn-thunder")
+    btn_trueno.addEventListener("click",ataqueTrueno)
+  
     let btn_reiniciar = document.getElementById("btn-restart")
     //funciones
 btn_mascota.addEventListener('click',seleccionarMascota)
 }
-
 
 
 
