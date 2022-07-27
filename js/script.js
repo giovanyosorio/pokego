@@ -141,8 +141,21 @@ function combate() {
         spanVidasjugador.innerHTML=vidasJugador
         spanVidasEnemigos.innerHTML=vidasEnemigo
      }
- 
+     revisarVidas()
 }
+function crearMensajeVidas(resultadoFinal) {
 
-
+    let seccionMensajes=document.getElementById("mensajes")
+    let parrafo = document.createElement("p")
+    parrafo.innerHTML= resultadoFinal
+    seccionMensajes.appendChild(parrafo)
+}
+     //Revisar vidas
+     function revisarVidas() {
+        if (vidasJugador==0 ) {
+            crearMensajeVidas("Perdiste")
+        } else if (vidasEnemigo==0 ){
+            crearMensaje("Felicitaciones Ganaste")
+        }
+     }
 window.addEventListener('load',iniciarJuego)
