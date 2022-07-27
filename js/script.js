@@ -18,14 +18,37 @@ function seleccionarMascota() {
         spanMascotaJugador.innerHTML= 'Langostelvis' 
     }    else if(Tupacalma.checked){
         spanMascotaJugador.innerHTML= 'Tupacalma' 
-    }    else if(Langostelvis.checked){
-        spanMascotaJugador.innerHTML= 'Langostelvis' 
-    }    else if(Pydos.checked){
+    }   else if(Pydos.checked){
         spanMascotaJugador.innerHTML= 'Pydos' 
     }
     else{
         alert('no seleccionaste ninguna mascota ')
     }
+    seleccionarMascotaEnemigo()
+}
+
+function seleccionarMascotaEnemigo() {
+    let ataqueAleatorio= aleatorio(1,6)
+    let mascota_enemigo= document.getElementById('mascota_enemigo')
+    if (ataqueAleatorio==1) {
+        mascota_enemigo.innerHTML= 'hypodoge' 
+     }     else if(ataqueAleatorio==2){
+        mascota_enemigo.innerHTML= 'Capipeyo' 
+     }    else if(ataqueAleatorio==3){
+        mascota_enemigo.innerHTML= 'Ratigueya' 
+     }    else if(ataqueAleatorio==4){
+        mascota_enemigo.innerHTML= 'Langostelvis' 
+     }    else if(ataqueAleatorio==5){
+        mascota_enemigo.innerHTML= 'Tupacalma' 
+     }   else if(ataqueAleatorio==6){
+        mascota_enemigo.innerHTML= 'Pydos' 
+     }
+     else{
+         alert('No se selecciono ataque')
+     }
+}
+function aleatorio(min,max) {
+    return  Math.floor(Math.random()*(max-min+1)+min)
 }
 
 function iniciarJuego(mascota) {
