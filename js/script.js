@@ -1,5 +1,5 @@
 
-let ataqueJugador
+let ataqueJugador, ataqueEnemigo
 function seleccionarMascota() {
     let hypodoge = document.getElementById("Hipodoge")
     let Capipeyo = document.getElementById("Capipeyo")
@@ -21,26 +21,24 @@ function seleccionarMascota() {
     }   else if(Pydos.checked){
         spanMascotaJugador.innerHTML= 'Pydos' 
     }
-    else{
-        alert('no seleccionaste ninguna mascota ')
-    }
-    seleccionarMascotaEnemigo()
+    else{  alert('no seleccionaste ninguna mascota ')
+    }    seleccionarMascotaEnemigo()
 }
 
 function seleccionarMascotaEnemigo() {
-    let ataqueAleatorio= aleatorio(1,6)
+    let seleccionarAtaqueAleatorio= aleatorio(1,6)
     let mascota_enemigo= document.getElementById('mascota_enemigo')
-    if (ataqueAleatorio==1) {
+    if (seleccionarAtaqueAleatorio==1) {
         mascota_enemigo.innerHTML= 'hypodoge' 
-     }     else if(ataqueAleatorio==2){
+     }     else if(seleccionarAtaqueAleatorio==2){
         mascota_enemigo.innerHTML= 'Capipeyo' 
-     }    else if(ataqueAleatorio==3){
+     }    else if(seleccionarAtaqueAleatorio==3){
         mascota_enemigo.innerHTML= 'Ratigueya' 
-     }    else if(ataqueAleatorio==4){
+     }    else if(seleccionarAtaqueAleatorio==4){
         mascota_enemigo.innerHTML= 'Langostelvis' 
-     }    else if(ataqueAleatorio==5){
+     }    else if(seleccionarAtaqueAleatorio==5){
         mascota_enemigo.innerHTML= 'Tupacalma' 
-     }   else if(ataqueAleatorio==6){
+     }   else if(seleccionarAtaqueAleatorio==6){
         mascota_enemigo.innerHTML= 'Pydos' 
      }
      else{
@@ -50,15 +48,32 @@ function seleccionarMascotaEnemigo() {
 
 function ataqueFuego() {
     ataqueJugador="FUEGO"
+    ataqueAleatorioEnemigo()
 }
 function ataqueAgua() {
     ataqueJugador="AGUA"
+    ataqueAleatorioEnemigo()
 }
 function ataqueTierra() {
     ataqueJugador="TIERRA"
+    ataqueAleatorioEnemigo()
 }
 function ataqueTrueno() {
     ataqueJugador="TRUENO"
+    ataqueAleatorioEnemigo()
+}
+
+function ataqueAleatorioEnemigo() {
+    let ataqueAleatorio= aleatorio(1,4)
+    if (ataqueAleatorio==1) {
+        ataqueEnemigo= 'FUEGO' 
+     }     else if(ataqueAleatorio==2){
+        ataqueEnemigo= 'AGUA' 
+     }    else if(ataqueAleatorio==3){
+        ataqueEnemigo= 'TIERRA' 
+     } else {
+        ataqueEnemigo= 'TRUENO'
+     }
 }
 function aleatorio(min,max) {
     return  Math.floor(Math.random()*(max-min+1)+min)
