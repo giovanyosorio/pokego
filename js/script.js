@@ -74,6 +74,14 @@ function ataqueAleatorioEnemigo() {
      } else {
         ataqueEnemigo= 'TRUENO'
      }
+     crearMensaje()
+}
+
+function crearMensaje() {
+    let seccionMensajes=document.getElementById("mensajes")
+    let parrafo = document.createElement("p")
+    parrafo.innerHTML="Tu mascota atacó con " + ataqueJugador + " la mascota del enemigo atacó con" + ataqueEnemigo + "pendiente"
+    seccionMensajes.appendChild(parrafo)
 }
 function aleatorio(min,max) {
     return  Math.floor(Math.random()*(max-min+1)+min)
