@@ -87,9 +87,12 @@ function aleatorio(min,max) {
     return  Math.floor(Math.random()*(max-min+1)+min)
 }
 
+function reiniciarJuego(params) {
+    location.reload()
+}
 function iniciarJuego() {
     let btn_mascota = document.getElementById("btn-pet")
-
+    btn_mascota.addEventListener('click',seleccionarMascota)
     let btn_fuego = document.getElementById("btn-fire")
     btn_fuego.addEventListener("click",ataqueFuego)
 
@@ -103,8 +106,9 @@ function iniciarJuego() {
     btn_trueno.addEventListener("click",ataqueTrueno)
   
     let btn_reiniciar = document.getElementById("btn-restart")
+    btn_reiniciar.addEventListener("click",reiniciarJuego)
     //funciones
-btn_mascota.addEventListener('click',seleccionarMascota)
+ 
 }
 
 function combate() {
@@ -149,13 +153,25 @@ function crearMensajeVidas(resultadoFinal) {
     let parrafo = document.createElement("p")
     parrafo.innerHTML= resultadoFinal
     seccionMensajes.appendChild(parrafo)
+
+    let btn_fuego = document.getElementById("btn-fire")
+    btn_fuego.disabled=true
+
+    let btn_agua = document.getElementById("btn-water")
+    btn_agua.disabled=true
+
+    let btn_tierra= document.getElementById("btn-ground")
+    btn_tierra.disabled=true
+
+    let btn_trueno= document.getElementById("btn-thunder")
+    btn_trueno.disabled=true
 }
-     //Revisar vidas
-     function revisarVidas() {
+
+function revisarVidas() {
         if (vidasJugador==0 ) {
-            crearMensajeVidas("Perdiste")
+            crearMensajeVidas(" Lo siento Acabaste de Perder")
         } else if (vidasEnemigo==0 ){
             crearMensaje("Felicitaciones Ganaste")
         }
-     }
+}
 window.addEventListener('load',iniciarJuego)
