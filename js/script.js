@@ -1,6 +1,13 @@
 
 let ataqueJugador, ataqueEnemigo,vidasEnemigo=3,vidasJugador=3
 function seleccionarMascota() {
+
+    let seleccionarMascota =document.getElementById("select-pet")
+    seleccionarMascota.style.display="none"
+
+    let seleccionarAtaque =document.getElementById("select_attack")
+    seleccionarAtaque.style.display="block"
+
     let hypodoge = document.getElementById("Hipodoge")
     let Capipeyo = document.getElementById("Capipeyo")
     let Ratigueya = document.getElementById("Ratigueya")
@@ -8,6 +15,7 @@ function seleccionarMascota() {
     let Tupacalma = document.getElementById("Tupacalma")
     let Pydos = document.getElementById("Pydos")
     let spanMascotaJugador= document.getElementById('mascota_jugador')
+
     if (hypodoge.checked) {
        spanMascotaJugador.innerHTML= 'hypodoge' 
     }     else if(Capipeyo.checked){
@@ -82,6 +90,8 @@ function crearMensaje(resultado) {
     let parrafo = document.createElement("p")
     parrafo.innerHTML="Tu mascota atacó con " + ataqueJugador + " la mascota del enemigo atacó con" + ataqueEnemigo + " " + resultado 
     seccionMensajes.appendChild(parrafo)
+
+
 }
 function aleatorio(min,max) {
     return  Math.floor(Math.random()*(max-min+1)+min)
@@ -91,6 +101,9 @@ function reiniciarJuego(params) {
     location.reload()
 }
 function iniciarJuego() {
+    let seleccionarAtaque =document.getElementById("select_attack")
+    seleccionarAtaque.style.display="none"
+
     let btn_mascota = document.getElementById("btn-pet")
     btn_mascota.addEventListener('click',seleccionarMascota)
     let btn_fuego = document.getElementById("btn-fire")
@@ -108,6 +121,8 @@ function iniciarJuego() {
     let btn_reiniciar = document.getElementById("btn-restart")
     btn_reiniciar.addEventListener("click",reiniciarJuego)
     //funciones
+    let reiniciar =document.getElementById("reiniciar")
+    reiniciar.style.display="none"
  
 }
 
@@ -146,6 +161,7 @@ function combate() {
         spanVidasEnemigos.innerHTML=vidasEnemigo
      }
      revisarVidas()
+
 }
 function crearMensajeVidas(resultadoFinal) {
 
@@ -165,6 +181,9 @@ function crearMensajeVidas(resultadoFinal) {
 
     let btn_trueno= document.getElementById("btn-thunder")
     btn_trueno.disabled=true
+    
+    let reiniciar =document.getElementById("reiniciar")
+    reiniciar.style.display="block"
 }
 
 function revisarVidas() {
