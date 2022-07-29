@@ -1,29 +1,51 @@
-.titulo {
-    color:tomato ;
-    width: 310px;
-    height: 50px;
-    background-color: rgb(94, 241, 31);
-    
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@0;1&display=swap');
+body {
+    font-family: 'Lobster Two', cursive;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(51,239,247,1) 60%, rgba(0,212,255,1) 100%);   
 }
 
 #select-pet{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+.titulo {
+    color:tomato ;
+    font-size: 50px;
+    justify-content: center;
 }
 
+.subtitulo {
+    color:slategray;
+    font-size: 30px;
+}
+
+.tarjetas {
+    display: flex;
+    gap : 10px;
+}
 .tarjeta-pokego {
     color:tomato ;
-    width: 100px;
-    height: 50px;
-    background-color: aquamarine;
+    width: 180px;
+    height: 100px;
+    background: #98e4dc;
     padding: 10px;
     box-sizing: border-box;
-    margin: 10px;
+    margin: 5px;
     border: 1px solid salmon;
+    border-radius: 10px;
+    display: flex;   
+    justify-content: center;
+    align-items: center;
 }
-
+.tarjeta-pokego img{
+    width: 80px;
+    
+}
 input {
     display: none;
 }
@@ -34,6 +56,7 @@ input {
     background-color:gold;
     padding: 10px;
     box-sizing: border-box;
-    margin: 10px;
+    margin: 5px;
     border: 1px solid skyblue;
+    border-radius: 10px;
 }
