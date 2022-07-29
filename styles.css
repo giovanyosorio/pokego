@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@0;1&family=Uchen&display=swap');
 body {
+
+    background-image: radial-gradient(red, green, blue);
     font-family: 'Lobster Two', cursive;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(207,152,228,1) 38%, rgba(0,212,255,1) 100%);
 }
 
 #select-pet{
@@ -85,3 +85,5 @@ input {
     display: flex;
     gap : 10px;
 }
+#mensajes{width:280px;background:#eee;padding:20px;margin-top:20px;border-radius:20px;display:flex;align-items:center;flex-direction:column}
+#boton-reiniciar{border:none;color:#11468f;font-family:poppins,sans-serif}

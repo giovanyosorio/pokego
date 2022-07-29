@@ -86,10 +86,26 @@ function ataqueAleatorioEnemigo() {
 }
 
 function crearMensaje(resultado) {
-    let seccionMensajes=document.getElementById("mensajes")
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML="Tu mascota atacó con " + ataqueJugador + " la mascota del enemigo atacó con" + ataqueEnemigo + " " + resultado 
-    seccionMensajes.appendChild(parrafo)
+
+    let seccionMensajes=document.getElementById("resultado")
+    let ataqueDelJugador=document.getElementById("ataque-Jugador")
+    let ataqueDelEnemigo=document.getElementById("ataque-Enemigo")
+    
+
+    let nuevoAtaqueJugador = document.createElement("p")
+    let nuevoAtaqueEnemigo = document.createElement("p")
+
+    seccionMensajes.innerHTML=resultado
+    nuevoAtaqueJugador.innerHTML=ataqueJugador
+    nuevoAtaqueEnemigo.innerHTML=ataqueEnemigo
+
+    //let parrafo = document.createElement("p")
+    //parrafo.innerHTML="Tu mascota atacó con " + ataqueJugador + " la mascota del enemigo atacó con" + ataqueEnemigo + " " + resultado 
+    
+    ataqueDelJugador.appendChild(nuevoAtaqueJugador)
+    ataqueDelEnemigo.appendChild(nuevoAtaqueEnemigo)
+
+    
 
 
 }
@@ -165,10 +181,11 @@ function combate() {
 }
 function crearMensajeVidas(resultadoFinal) {
 
-    let seccionMensajes=document.getElementById("mensajes")
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML= resultadoFinal
-    seccionMensajes.appendChild(parrafo)
+    let seccionMensajes=document.getElementById("resultado")
+
+   // let parrafo = document.createElement("p")
+   seccionMensajes.innerHTML= resultadoFinal
+
 
     let btn_fuego = document.getElementById("btn-fire")
     btn_fuego.disabled=true
