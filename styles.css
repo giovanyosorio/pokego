@@ -87,3 +87,7 @@ input {
 }
 #mensajes{width:280px;background:#eee;padding:20px;margin-top:20px;border-radius:20px;display:flex;align-items:center;flex-direction:column}
 #boton-reiniciar{border:none;color:#11468f;font-family:poppins,sans-serif}
+.ataques {
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
