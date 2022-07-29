@@ -1,82 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POKEGO</title>
-    <script src="./js/script.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>POKEGO</title>
+        <script src="./js/script.js"></script>
+        <link rel="stylesheet" href="styles.css">
 
-</head>
+    </head>
 
-<body>
-   
- 
-    <section id="select-pet"> 
-        <h1 class= "titulo">🌱 💧 💥 POKEGO 💥💧🌱</h1>
+    <body>
 
-        <h2 class="subtitulo"> Elige tu mascota : </h2>
-        
-        <div class="tarjetas">
-            <label class="tarjeta-pokego" for="Hipodoge">
-                <p>Hipodoge</p>
+        <section id="select-pet">
+            <h1 class="titulo">🌱 💧 💥 POKEGO 💥💧🌱</h1>
+
+            <h2 class="subtitulo">
+                Elige tu mascota :
+            </h2>
+
+            <div class="tarjetas">
+                <label class="tarjeta-pokego" for="Hipodoge">
+                    <p>Hipodoge</p>
                     <img src="assets/hipodoge.png" alt="Hipodoge">
-            </label>
-            <input type="radio" name="mascota" id="Hipodoge" >
-    
-            <label class="tarjeta-pokego" for="Capipeyo">
-                <p>Capipeyo</p>
+                </label>
+                <input type="radio" name="mascota" id="Hipodoge">
+
+                <label class="tarjeta-pokego" for="Capipeyo">
+                    <p>Capipeyo</p>
                     <img src="assets/capipepo.png" alt="Capipeyo">
                 </label>
-            <input type="radio" name="mascota" id="Capipeyo" >
-    
-            <label class="tarjeta-pokego" for="Ratigueya">
-                <p>Ratigueya</p>
+                <input type="radio" name="mascota" id="Capipeyo">
+
+                <label class="tarjeta-pokego" for="Ratigueya">
+                    <p>Ratigueya</p>
                     <img src="assets/ratigueya.png" alt="Ratigueya">
                 </label>
-            </label>
-            <input type="radio" name="mascota" id="Ratigueya" >
+                <input type="radio" name="mascota" id="Ratigueya">
+
+                <label class="tarjeta-pokego" for="Langostelvis">
+                    <p>Langostelvis</p>
+                    <img src="assets/ratigueya.png" alt="Langostelvis">
+                </label>
+                <input type="radio" name="mascota" id="Langostelvis">
+
+                <label class="tarjeta-pokego" for="Tupacalma">
+                    <p>Hipodoge</p>
+                    <img src="assets/hipodoge.png" alt="Hipodoge">
+                </label>
+                <input type="radio" name="mascota" id="Tupacalma">
+
+                <label class="tarjeta-pokego" for="Pydos">
+                    <p>Hipodoge</p>
+                    <img src="assets/hipodoge.png" alt="Hipodoge">
+                </label>
+                <input type="radio" name="mascota" id="Pydos">
+
+            </div>
+            <button id="btn-pet">
+                Selecccionar</button>
+
+        </section>
+
+        <section id="select_attack">
+
+            <h1 class="titulo">🌱 💧 💥 POKEGO 💥💧🌱</h1>
+
+            <h2>
+                Elige tu Ataque :
+            </h2>
+            <div class="ataques">
+                <button id="btn-fire" class="btn_ataque">FIRE 🔥</button>
+                <button id="btn-water"  class="btn_ataque">WATER 💦</button>
+                <button id="btn-ground"  class="btn_ataque">GROUND 🌱</button>
+                <button id="btn-thunder"  class="btn_ataque">TRUENO ⚡</button>
+            </div>
+
+            <div>
+
+                <section id="mensajes">
+                </section>
+
+                <section id="reiniciar">
+                    <button id="btn-restart">Reiniciar⛔</button>
+                </section>
+            </div>
+                    <div>
+                        <p>tu mascota<span id="mascota_jugador"></span><span id="vidas_jugador">3</span>vidas</p>
+                        <p>la mascota del enemigo<span id="mascota_enemigo"></span>tiene<span id="vidas_enemigo">3</span>vidas</p>
+                    </div>
     
-            <label class="tarjeta-pokego" for="Langostelvis">Langostelvis</label>
-            <input type="radio" name="mascota" id="Langostelvis" >
     
-            <label class="tarjeta-pokego" for="Tupacalma">Tupacalma</label>
-            <input type="radio" name="mascota" id="Tupacalma" >
+
     
-            <label class="tarjeta-pokego" for="Pydos">Pydos</label>
-            <input type="radio" name="mascota" id="Pydos" >
-     
-            
-        </div>
-            <button id="btn-pet"> Selecccionar</button>
+            </section>
 
-    </section>
+    
+  
 
-    <section id="select_attack">
-        
-        <h1 class= "titulo">POKEGO 💥💧🌱</h1>
 
-        <h2> Elige tu Ataque : </h2>
-        
-        <p> tu mascota <span id="mascota_jugador"> </span> <span id="vidas_jugador">3</span> vidas</p>
-        <p> la mascota del  enemigo <span id="mascota_enemigo"> </span>  tiene <span id="vidas_enemigo">3</span> vidas</p>
-       
-        <p>
-            <button id="btn-fire">FIRE 🔥</button>
-            <button id="btn-water">WATER 💦</button>
-            <button id="btn-ground">GROUND 🌱</button>
-            <button id="btn-thunder">TRUENO ⚡</button>
-        </p>
-    </section>
-
-    <section id="mensajes">
-    </section>
-
-    <section id="reiniciar">  
-        <button id="btn-restart">Reiniciar⛔</button> 
-     </section>
-</body>
+    </body>
 
 </html>

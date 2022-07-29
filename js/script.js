@@ -6,7 +6,7 @@ function seleccionarMascota() {
     seleccionarMascota.style.display="none"
 
     let seleccionarAtaque =document.getElementById("select_attack")
-    seleccionarAtaque.style.display="block"
+    seleccionarAtaque.style.display="flex"
 
     let hypodoge = document.getElementById("Hipodoge")
     let Capipeyo = document.getElementById("Capipeyo")
