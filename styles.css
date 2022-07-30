@@ -48,9 +48,11 @@ body {
     
 }
 input {
-    display: none;
+   display: none;
 }
-
+input:checked + label{
+    background: teal;
+}
 #btn-pet{
     color:chocolate ;
     width: 180px;
