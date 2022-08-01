@@ -23,6 +23,22 @@ let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
 let vidasEnemigo = 3
+
+class Pokego {
+    //constructor, propiedades que tiene me objeto
+    constructor(nombre,foto, vida) {
+        //this; hace referencia a mi clase misma
+        this.nombre = nombre
+        this.foto=foto
+        this.vida=vida
+    }
+}
+
+let hipodoge= new Pokego('Hipodoge','assets/hipodoge.png',5) // de una clase que ya existe creamos nuestro nuevo objeto
+let capipepo= new Pokego('Capipepo','assets/capipepo.png',5)
+let ratigueya= new Pokego('Ratigueya','assets/ratigueya.png',5)
+
+
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = 'none'
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
