@@ -9,9 +9,6 @@ const botonReiniciar = document.getElementById('boton-reiniciar')
 const sectionSeleccionarMascota = document.getElementById(
     'seleccionar-mascota'
 )
-const inputHipodoge = document.getElementById('hipodoge')
-const inputCapipepo = document.getElementById('capipepo')
-const inputRatigueya = document.getElementById('ratigueya')
 const spanMascotaJugador = document.getElementById('mascota-jugador')
 const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 const spanVidasJugador = document.getElementById('vidas-jugador')
@@ -19,102 +16,109 @@ const spanVidasEnemigo = document.getElementById('vidas-enemigo')
 const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
-const contenedorTarjetas =document.getElementById('contenedorTarjetas')
-
+const contenedorTarjetas = document.getElementById('contenedorTarjetas')
+let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
+let opcionDeMokepones
+let inputHipodoge
+let inputCapipepo
+let inputRatigueya
 let vidasJugador = 3
 let vidasEnemigo = 3
-let opcionDePokegomes
-
-let pokegomes = []
-
-class Pokego {
-    //constructor, propiedades que tiene me objeto
+class Mokepon {
     constructor(nombre, foto, vida) {
-        //this; hace referencia a mi clase misma
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
         this.ataques = []
     }
 }
-
-let hipodoge = new Pokego('Hipodoge', 'assets/hipodoge.png', 5) // de una clase que ya existe creamos nuestro nuevo objeto
-let capipepo = new Pokego('Capipepo', 'assets/capipepo.png', 5)
-let ratigueya = new Pokego('Ratigueya', 'assets/ratigueya.png', 5)
-
+let hipodoge = new Mokepon(
+    'Hipodoge',
+    './assets/hipodoge.png',
+    5
+)
+let capipepo = new Mokepon(
+    'Capipepo',
+    './assets/capipepo.png',
+    5
+)
+let ratigueya = new Mokepon(
+    'Ratigueya',
+    './assets/ratigueya.png',
+    5
+)
 hipodoge
     .ataques
     .push({
-        nombre: ' 💦',
+        nombre: '💧',
         id: 'boton-agua'
     }, {
-        nombre: '💦',
+        nombre: '💧',
         id: 'boton-agua'
     }, {
-        nombre: ' 💦',
+        nombre: '💧',
         id: 'boton-agua'
     }, {
-        nombre: ' 🔥',
+        nombre: '🔥',
         id: 'boton-fuego'
     }, {
-        nombre: ' 🌱',
+        nombre: '🌱',
         id: 'boton-tierra'
-    })
-
+    },)
 capipepo
     .ataques
     .push({
-        nombre: ' 🌱',
+        nombre: '🌱',
         id: 'boton-tierra'
     }, {
-        nombre: ' 🌱',
+        nombre: '🌱',
         id: 'boton-tierra'
     }, {
-        nombre: ' 🌱',
+        nombre: '🌱',
         id: 'boton-tierra'
     }, {
-        nombre: ' 🔥',
-        id: 'boton-fuego'
-    }, {
-        nombre: ' 💦',
+        nombre: '💧',
         id: 'boton-agua'
-    })
+    }, {
+        nombre: '🔥',
+        id: 'boton-fuego'
+    },)
 ratigueya
     .ataques
     .push({
-        nombre: ' 🔥',
+        nombre: '🔥',
         id: 'boton-fuego'
     }, {
-        nombre: ' 🔥',
+        nombre: '🔥',
         id: 'boton-fuego'
     }, {
-        nombre: ' 🔥',
+        nombre: '🔥',
         id: 'boton-fuego'
     }, {
-        nombre: ' 💦',
+        nombre: '💧',
         id: 'boton-agua'
     }, {
-        nombre: ' 🌱',
+        nombre: '🌱',
         id: 'boton-tierra'
-    })
-
-pokegomes.push(hipodoge, capipepo, ratigueya)
-
+    },)
+mokepones.push(hipodoge, capipepo, ratigueya)
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = 'none'
-
-    pokegomes.forEach((pokego)=> {
-        opcionDePokegomes=`
-        <input type="radio" name="mascota" id=${pokego.nombre}/>
-                <label class="tarjeta-de-mokepon" for=${pokego.nombre}>
-                    <p>Hipodoge</p>
-                    <img src=${pokego.foto} ${pokego.nombre}>
-                </label>` 
-    contenedorTarjetas.innerHTML+=opcionDePokegomes
+    mokepones.forEach((mokepon) => {
+        opcionDeMokepones = `
+        <input type="radio" name="mascota" id=${mokepon.nombre} />
+        <label class="tarjeta-de-mokepon" for=${mokepon.nombre}>
+            <p>${mokepon.nombre}</p>
+            <img src=${mokepon.foto} alt=${mokepon.nombre}>
+        </label>
+        `
+        contenedorTarjetas.innerHTML += opcionDeMokepones
+        inputHipodoge = document.getElementById('Hipodoge')
+        inputCapipepo = document.getElementById('Capipepo')
+        inputRatigueya = document.getElementById('Ratigueya')
     })
-
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
     botonFuego.addEventListener('click', ataqueFuego)
     botonAgua.addEventListener('click', ataqueAgua)
