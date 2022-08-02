@@ -24,6 +24,8 @@ let ataqueEnemigo
 let vidasJugador = 3
 let vidasEnemigo = 3
 
+let pokegomes = []
+
 class Pokego {
     //constructor, propiedades que tiene me objeto
     constructor(nombre,foto, vida) {
@@ -38,6 +40,9 @@ let hipodoge= new Pokego('Hipodoge','assets/hipodoge.png',5) // de una clase que
 let capipepo= new Pokego('Capipepo','assets/capipepo.png',5)
 let ratigueya= new Pokego('Ratigueya','assets/ratigueya.png',5)
 
+pokegomes.push(hipodoge,capipepo,ratigueya)
+
+console.log(pokegomes);
 
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = 'none'
