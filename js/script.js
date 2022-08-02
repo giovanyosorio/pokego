@@ -19,12 +19,15 @@ const spanVidasEnemigo = document.getElementById('vidas-enemigo')
 const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
+const contenedorTarjetas =document.getElementById('contenedorTarjetas')
+
 let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
 let vidasEnemigo = 3
+let opcionDePokegomes
 
-//let pokegomes = []
+let pokegomes = []
 
 class Pokego {
     //constructor, propiedades que tiene me objeto
@@ -80,24 +83,38 @@ capipepo
     })
 ratigueya
     .ataques
-    .push( {
+    .push({
         nombre: ' 🔥',
         id: 'boton-fuego'
-    },  {
+    }, {
         nombre: ' 🔥',
         id: 'boton-fuego'
-    },  {
+    }, {
         nombre: ' 🔥',
         id: 'boton-fuego'
-    },{
+    }, {
         nombre: ' 💦',
         id: 'boton-agua'
     }, {
         nombre: ' 🌱',
         id: 'boton-tierra'
     })
+
+pokegomes.push(hipodoge, capipepo, ratigueya)
+
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = 'none'
+
+    pokegomes.forEach((pokego)=> {
+        opcionDePokegomes=`
+        <input type="radio" name="mascota" id=${pokego.nombre}/>
+                <label class="tarjeta-de-mokepon" for=${pokego.nombre}>
+                    <p>Hipodoge</p>
+                    <img src=${pokego.foto} ${pokego.nombre}>
+                </label>` 
+    contenedorTarjetas.innerHTML+=opcionDePokegomes
+    })
+
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
     botonFuego.addEventListener('click', ataqueFuego)
     botonAgua.addEventListener('click', ataqueAgua)
