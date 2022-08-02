@@ -24,26 +24,78 @@ let ataqueEnemigo
 let vidasJugador = 3
 let vidasEnemigo = 3
 
-let pokegomes = []
+//let pokegomes = []
 
 class Pokego {
     //constructor, propiedades que tiene me objeto
-    constructor(nombre,foto, vida) {
+    constructor(nombre, foto, vida) {
         //this; hace referencia a mi clase misma
         this.nombre = nombre
-        this.foto=foto
-        this.vida=vida
+        this.foto = foto
+        this.vida = vida
+        this.ataques = []
     }
 }
 
-let hipodoge= new Pokego('Hipodoge','assets/hipodoge.png',5) // de una clase que ya existe creamos nuestro nuevo objeto
-let capipepo= new Pokego('Capipepo','assets/capipepo.png',5)
-let ratigueya= new Pokego('Ratigueya','assets/ratigueya.png',5)
+let hipodoge = new Pokego('Hipodoge', 'assets/hipodoge.png', 5) // de una clase que ya existe creamos nuestro nuevo objeto
+let capipepo = new Pokego('Capipepo', 'assets/capipepo.png', 5)
+let ratigueya = new Pokego('Ratigueya', 'assets/ratigueya.png', 5)
 
-pokegomes.push(hipodoge,capipepo,ratigueya)
+hipodoge
+    .ataques
+    .push({
+        nombre: ' 💦',
+        id: 'boton-agua'
+    }, {
+        nombre: '💦',
+        id: 'boton-agua'
+    }, {
+        nombre: ' 💦',
+        id: 'boton-agua'
+    }, {
+        nombre: ' 🔥',
+        id: 'boton-fuego'
+    }, {
+        nombre: ' 🌱',
+        id: 'boton-tierra'
+    })
 
-console.log(pokegomes);
-
+capipepo
+    .ataques
+    .push({
+        nombre: ' 🌱',
+        id: 'boton-tierra'
+    }, {
+        nombre: ' 🌱',
+        id: 'boton-tierra'
+    }, {
+        nombre: ' 🌱',
+        id: 'boton-tierra'
+    }, {
+        nombre: ' 🔥',
+        id: 'boton-fuego'
+    }, {
+        nombre: ' 💦',
+        id: 'boton-agua'
+    })
+ratigueya
+    .ataques
+    .push( {
+        nombre: ' 🔥',
+        id: 'boton-fuego'
+    },  {
+        nombre: ' 🔥',
+        id: 'boton-fuego'
+    },  {
+        nombre: ' 🔥',
+        id: 'boton-fuego'
+    },{
+        nombre: ' 💦',
+        id: 'boton-agua'
+    }, {
+        nombre: ' 🌱',
+        id: 'boton-tierra'
+    })
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = 'none'
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
