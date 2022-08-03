@@ -33,8 +33,8 @@ let botonAgua
 let botones = []
 let indexAtaqueJugador
 let indexAtaqueEnemigo
-let victoriasJugador=0
-let victoriasEnemigo=0
+let victoriasJugador = 0
+let victoriasEnemigo = 0
 let vidasJugador = 3
 let vidasEnemigo = 3
 class Mokepon {
@@ -195,7 +195,7 @@ function seleccionarMascotaEnemigo() {
 }
 
 function ataqueAleatorioEnemigo() {
-    let ataqueAleatorio = aleatorio(0, spanMascotaEnemigo.length - 1)
+    let ataqueAleatorio = aleatorio(0, ataquesMokeponEnemigo.length - 1)
     if (ataqueAleatorio == 0 || ataqueAleatorio == 1) {
         ataqueEnemigo.push('FUEGO')
     } else if (ataqueAleatorio == 3 || ataqueAleatorio == 4) {
@@ -248,10 +248,12 @@ function combate() {
     revisarVidas()
 }
 function revisarVidas() {
-    if (vidasEnemigo == 0) {
-        crearMensajeFinal("FELICITACIONES! Ganaste :)")
-    } else if (vidasJugador == 0) {
-        crearMensajeFinal('Lo siento, perdiste :(')
+    if (victoriasEnemigo == victoriasJugador) {
+        crearMensajeFinal("ESTO FUE UN EMPATE")
+    } else if (victoriasJugador > victoriasEnemigo) {
+        crearMensajeFinal('GANASTE')
+    } else {
+        crearMensajeFinal('PERDISTE')
     }
 }
 function crearMensaje(resultado) {
