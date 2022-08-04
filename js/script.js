@@ -17,8 +17,8 @@ const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 const contenedorTarjetas = document.getElementById('contenedorTarjetas')
 const contenedorAtaques = document.getElementById('contenedorAtaques')
-const sectionVerMapa =document.getElementById('ver-mapa')
-const mapa=document.getElementById('mapa')
+const sectionVerMapa = document.getElementById('ver-mapa')
+const mapa = document.getElementById('mapa')
 
 let mokepones = []
 let ataqueJugador = []
@@ -50,14 +50,14 @@ class Mokepon {
         this.foto = foto
         this.vida = vida
         this.ataques = []
-        this.x=20
-        this.y=30
-        this.ancho=80
-        this.alto=80
-        this.mapaFoto=new Image()
-        this.mapaFoto.src=foto
-        this.velocidadX=0
-        this.velocidadY=0
+        this.x = 20
+        this.y = 30
+        this.ancho = 80
+        this.alto = 80
+        this.mapaFoto = new Image()
+        this.mapaFoto.src = foto
+        this.velocidadX = 0
+        this.velocidadY = 0
     }
 }
 
@@ -121,7 +121,7 @@ ratigueya
 mokepones.push(hipodoge, capipepo, ratigueya)
 function iniciarJuego() {
     sectionSeleccionarAtaque.style.display = 'none'
-    sectionVerMapa.style.display='none'
+    sectionVerMapa.style.display = 'none'
     mokepones.forEach((mokepon) => {
         opcionDeMokepones = `
         <input type="radio" name="mascota" id=${mokepon.nombre} />
@@ -141,10 +141,9 @@ function iniciarJuego() {
 }
 function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
-   // sectionSeleccionarAtaque.style.display = 'flex'
-   sectionVerMapa.style.display='flex'
-    intervalo= setInterval(pintarPersonaje,50)
-
+    // sectionSeleccionarAtaque.style.display = 'flex'
+    sectionVerMapa.style.display = 'flex'
+    iniciarMapa()
     if (inputHipodoge.checked) {
         spanMascotaJugador.innerHTML = inputHipodoge.id
         mascotaJugador = inputHipodoge.id
@@ -192,17 +191,17 @@ function secuenciaAtaque() {
                 ataqueJugador.push('FUEGO')
                 console.log(ataqueJugador);
                 boton.style.background = '#112f58'
-                boton.disabled=true
+                boton.disabled = true
             } else if (e.target.textContent === '💧') {
                 ataqueJugador.push('AGUA')
                 console.log(ataqueJugador);
                 boton.style.background = '#112f58'
-                boton.disabled=true
+                boton.disabled = true
             } else {
                 ataqueJugador.push('TIERRA')
                 console.log(ataqueJugador);
                 boton.style.background = '#112f58'
-                boton.disabled=true
+                boton.disabled = true
             }
             ataqueAleatorioEnemigo()
         })
@@ -299,9 +298,11 @@ function aleatorio(min, max) {
 }
 
 function pintarPersonaje() {
-    capipepo.x=capipepo.x +capipepo.velocidadX
-    capipepo.y=capipepo.y + capipepo.velocidadY
-    lienzo.clearRect(0,0,mapa.width,mapa.height)
+    capipepo.x = capipepo.x + capipepo.velocidadX
+    capipepo.y = capipepo.y + capipepo
+        .velocidadY
+        lienzo
+        .clearRect(0, 0, mapa.width, mapa.height)
     lienzo.drawImage(
         capipepo.mapaFoto,
         capipepo.x,
@@ -312,19 +313,46 @@ function pintarPersonaje() {
 }
 
 function moverDerecha() {
-    capipepo.velocidadX=5
+    capipepo.velocidadX = 5
 }
 function moverIzquierda() {
-    capipepo.velodidadX=-5
+    capipepo.velocidadX = -5
+
 }
 function moverArriba() {
-    capipepo.velocidadY=-5
+    capipepo.velocidadY = -5
 }
 function moverAbajo() {
-    capipepo.velocidadY=5
+    capipepo.velocidadY = 5
 }
 function detenerMovimiento() {
-    capipepo.velocidadX=0
-    capipepo.velocidadY=0
+    capipepo.velocidadX = 0
+    capipepo.velocidadY = 0
+}
+
+function sePresionoUnaTecla(event) {
+    switch (event.key) {
+        case 'ArrowUp':
+            moverArriba()
+            break;
+        case 'ArrowDown':
+            moverAbajo()
+            break;
+        case 'ArrowRight':
+            moverDerecha()
+            break;
+        case 'ArrowLeft':
+            moverIzquierda()
+            break;
+        default:
+            break;
+    }
+}
+
+function iniciarMapa() {
+    intervalo = setInterval(pintarPersonaje, 50)
+
+    window.addEventListener('keydown', sePresionoUnaTecla)
+    window.addEventListener('keyup', detenerMovimiento)
 }
 window.addEventListener('load', iniciarJuego)
