@@ -40,6 +40,7 @@ let victoriasJugador = 0
 let victoriasEnemigo = 0
 let vidasJugador = 3
 let vidasEnemigo = 3
+let intervalo
 
 let lienzo = mapa.getContext('2d')
 
@@ -55,6 +56,8 @@ class Mokepon {
         this.alto=80
         this.mapaFoto=new Image()
         this.mapaFoto.src=foto
+        this.velocidadX=0
+        this.velocidadY=0
     }
 }
 
@@ -140,6 +143,8 @@ function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
    // sectionSeleccionarAtaque.style.display = 'flex'
    sectionVerMapa.style.display='flex'
+    intervalo= setInterval(pintarPersonaje,50)
+
     if (inputHipodoge.checked) {
         spanMascotaJugador.innerHTML = inputHipodoge.id
         mascotaJugador = inputHipodoge.id
@@ -294,6 +299,8 @@ function aleatorio(min, max) {
 }
 
 function pintarPersonaje() {
+    capipepo.x=capipepo.x +capipepo.velocidadX
+    capipepo.y=capipepo.y + capipepo.velocidadY
     lienzo.clearRect(0,0,mapa.width,mapa.height)
     lienzo.drawImage(
         capipepo.mapaFoto,
@@ -304,8 +311,20 @@ function pintarPersonaje() {
     )
 }
 
-function moverCapipepo() {
-    capipepo.x=capipepo.x +5
-    pintarPersonaje()
+function moverDerecha() {
+    capipepo.velocidadX=5
+}
+function moverIzquierda() {
+    capipepo.velodidadX=-5
+}
+function moverArriba() {
+    capipepo.velocidadY=-5
+}
+function moverAbajo() {
+    capipepo.velocidadY=5
+}
+function detenerMovimiento() {
+    capipepo.velocidadX=0
+    capipepo.velocidadY=0
 }
 window.addEventListener('load', iniciarJuego)

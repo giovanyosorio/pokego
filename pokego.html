@@ -16,7 +16,10 @@
         <section id="ver-mapa">
             <h1 class="titulo">RECORRE EL MAPA CON TU POKEGO</h1>
             <canvas id="mapa"> </canvas>
-            <button onClick="moverCapipepo()">Mover</button>
+            <button onmouseup="detenerMovimiento()" on onmousedown="moverArriba()">Arriba</button>
+            <button onmouseup="detenerMovimiento()" on onmousedown="moverIzquierda()">Izquierda</button>
+            <button onmouseup="detenerMovimiento()" on onmousedown="moverAbajo()">Abajo</button>
+            <button onmouseup="detenerMovimiento()" on onmousedown="moverDerecha()">Derecha</button>
         </section>
         <section id="seleccionar-ataque">
             <h1 class="titulo">Mokepon</h1>
