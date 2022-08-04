@@ -56,7 +56,7 @@ mapa.width = anchoDelMapa
 mapa.height= alturaQueBuscamos
 
 class Mokepon {
-    constructor(nombre, foto, vida, fotoMapa, x = 10, y = 10) {
+    constructor(nombre, foto, vida, fotoMapa) {
         this.nombre = nombre
         this.foto = foto
         this.vida = vida
@@ -96,25 +96,19 @@ let hipodogeEnemigo = new Mokepon(
     'Hipodoge',
     './assets/mokepons_mokepon_hipodoge_attack.png',
     5,
-    './assets/hipodoge.png',
-    80,
-    120
+    './assets/hipodoge.png'
 )
 let capipepoEnemigo = new Mokepon(
     'Capipepo',
     './assets/mokepons_mokepon_capipepo_attack.png',
     5,
-    './assets/capipepo.png',
-    150,
-    95
+    './assets/capipepo.png'
 )
 let ratigueyaEnemigo = new Mokepon(
     'Ratigueya',
     './assets/mokepons_mokepon_ratigueya_attack.png',
     5,
-    './assets/ratigueya.png',
-    200,
-    190
+    './assets/ratigueya.png'
 )
 hipodoge
     .ataques
