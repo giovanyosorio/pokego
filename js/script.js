@@ -260,7 +260,21 @@ function iniciarJuego() {
   });
   botonMascotaJugador.addEventListener("click", seleccionarMascotaJugador);
   botonReiniciar.addEventListener("click", reiniciarJuego);
+
+  unirseAlJuego();
 }
+
+function unirseAlJuego() {
+  fetch("http://localhost:8080/unirse").then(function (res) {
+    // console.log(res);
+    if (res.ok) {
+      res.text().then(function (resp) {
+        console.log(resp);
+      });
+    }
+  });
+}
+
 function seleccionarMascotaJugador() {
   sectionSeleccionarMascota.style.display = "none";
   if (inputHipodoge.checked) {
