@@ -119,9 +119,6 @@ input:checked + label {
   align-items: center;
   justify-content: center;
 }
-#mapa{
-  border: 5px solid white;
-}
 
 @media (max-width: 360px) {
   .tarjetas, .tarjetas-ataques {
