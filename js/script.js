@@ -56,7 +56,8 @@ mapa.width = anchoDelMapa;
 mapa.height = alturaQueBuscamos;
 
 class Mokepon {
-  constructor(nombre, foto, vida, fotoMapa) {
+  constructor(nombre, foto, vida, fotoMapa, id = null) {
+    this.id = id;
     this.nombre = nombre;
     this.foto = foto;
     this.vida = vida;
@@ -92,25 +93,8 @@ let ratigueya = new Mokepon(
   5,
   "./assets/ratigueyaa.png"
 );
-let hipodogeEnemigo = new Mokepon(
-  "Hipodoge",
-  "./assets/mokepons_mokepon_hipodoge_attack.png",
-  5,
-  "./assets/hipodoge.png"
-);
-let capipepoEnemigo = new Mokepon(
-  "Capipepo",
-  "./assets/mokepons_mokepon_capipepo_attack.png",
-  5,
-  "./assets/capipepo.png"
-);
-let ratigueyaEnemigo = new Mokepon(
-  "Ratigueya",
-  "./assets/mokepons_mokepon_ratigueya_attack.png",
-  5,
-  "./assets/ratigueya.png"
-);
-hipodoge.ataques.push(
+
+const HIPODOGE_ATAQUES = [
   {
     nombre: "💧",
     id: "boton-agua",
@@ -130,9 +114,10 @@ hipodoge.ataques.push(
   {
     nombre: "🌱",
     id: "boton-tierra",
-  }
-);
-hipodogeEnemigo.ataques.push(
+  },
+];
+
+const CAPIPEPO_ATAQUES = [
   {
     nombre: "💧",
     id: "boton-agua",
@@ -152,53 +137,9 @@ hipodogeEnemigo.ataques.push(
   {
     nombre: "🌱",
     id: "boton-tierra",
-  }
-);
-capipepo.ataques.push(
-  {
-    nombre: "🌱",
-    id: "boton-tierra",
   },
-  {
-    nombre: "🌱",
-    id: "boton-tierra",
-  },
-  {
-    nombre: "🌱",
-    id: "boton-tierra",
-  },
-  {
-    nombre: "💧",
-    id: "boton-agua",
-  },
-  {
-    nombre: "🔥",
-    id: "boton-fuego",
-  }
-);
-capipepoEnemigo.ataques.push(
-  {
-    nombre: "🌱",
-    id: "boton-tierra",
-  },
-  {
-    nombre: "🌱",
-    id: "boton-tierra",
-  },
-  {
-    nombre: "🌱",
-    id: "boton-tierra",
-  },
-  {
-    nombre: "💧",
-    id: "boton-agua",
-  },
-  {
-    nombre: "🔥",
-    id: "boton-fuego",
-  }
-);
-ratigueya.ataques.push(
+];
+const RATIGUEYA_ATAQUES = [
   {
     nombre: "🔥",
     id: "boton-fuego",
@@ -218,31 +159,16 @@ ratigueya.ataques.push(
   {
     nombre: "🌱",
     id: "boton-tierra",
-  }
-);
-ratigueyaEnemigo.ataques.push(
-  {
-    nombre: "🔥",
-    id: "boton-fuego",
   },
-  {
-    nombre: "🔥",
-    id: "boton-fuego",
-  },
-  {
-    nombre: "🔥",
-    id: "boton-fuego",
-  },
-  {
-    nombre: "💧",
-    id: "boton-agua",
-  },
-  {
-    nombre: "🌱",
-    id: "boton-tierra",
-  }
-);
+];
+hipodoge.ataques.push(...HIPODOGE_ATAQUES);
+//hipodogeEnemigo.ataques.push(...HIPODOGE_ATAQUES);
+capipepo.ataques.push(...CAPIPEPO_ATAQUES);
+//capipepoEnemigo.ataques.push(...CAPIPEPO_ATAQUES);
+ratigueya.ataques.push(...RATIGUEYA_ATAQUES);
+//ratigueyaEnemigo.ataques.push(...RATIGUEYA_ATAQUES);
 mokepones.push(hipodoge, capipepo, ratigueya);
+
 function iniciarJuego() {
   sectionSeleccionarAtaque.style.display = "none";
   sectionVerMapa.style.display = "none";
@@ -481,6 +407,43 @@ function enviarPosicion(x, y) {
       x: x,
       y: y,
     }),
+  }).then(function (res) {
+    if (res.ok) {
+      res.json().then(function ({ enemigos }) {
+        console.log(enemigos);
+
+        enemigos.forEach(function (enemigo) {
+          let mokeponEnemigo = null;
+          const mokeponNombre = enemigo.mokepon.nombre || "";
+          if (mokeponNombre === "Hipodoge") {
+            mokeponEnemigo = new Mokepon(
+              "Hipodoge",
+              "./assets/mokepons_mokepon_hipodoge_attack.png",
+              5,
+              "./assets/hipodoge.png"
+            );
+          } else if (mokeponNombre === "Capipepo") {
+            mokeponEnemigo = new Mokepon(
+              "Capipepo",
+              "./assets/mokepons_mokepon_capipepo_attack.png",
+              5,
+              "./assets/capipepo.png"
+            );
+          } else if (mokeponNombre === "Ratigueya") {
+            mokeponEnemigo = new Mokepon(
+              "Ratigueya",
+              "./assets/mokepons_mokepon_ratigueya_attack.png",
+              5,
+              "./assets/ratigueya.png"
+            );
+          }
+
+          mokeponEnemigo.x = enemigo.x;
+          mokeponEnemigo.y = enemigo.y;
+          mokeponEnemigo.pintarMokepon();
+        });
+      });
+    }
   });
 }
 
