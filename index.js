@@ -1,13 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-
-//crear app , representa nuestro servidor
-
 const app = express();
 app.use(cors());
-app.use(express.json()); //se genera una instancia del servidor
-let jugadores = [];
-
+app.use(express.json());
+const jugadores = [];
 class Jugador {
   constructor(id) {
     this.id = id;
@@ -20,35 +16,25 @@ class Jugador {
     this.y = y;
   }
 }
-
 class Mokepon {
   constructor(nombre) {
     this.nombre = nombre;
   }
 }
-
 app.get("/unirse", (req, res) => {
   const id = `${Math.random()}`;
-
   const jugador = new Jugador(id);
   jugadores.push(jugador);
-
-  //res.setHeader("Access-Control-Allow-Origin", "*");
-
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.send(id);
 });
-
 app.post("/mokepon/:jugadorId", (req, res) => {
   const jugadorId = req.params.jugadorId || "";
-
   const nombre = req.body.mokepon || "";
-
   const mokepon = new Mokepon(nombre);
-
   const jugadorIndex = jugadores.findIndex(
     (jugador) => jugadorId === jugador.id
   );
-
   if (jugadorIndex >= 0) {
     jugadores[jugadorIndex].asignarMokepon(mokepon);
   }
@@ -56,7 +42,6 @@ app.post("/mokepon/:jugadorId", (req, res) => {
   console.log(jugadorId);
   res.end();
 });
-
 app.post("/mokepon/:jugadorId/posicion", (req, res) => {
   const jugadorId = req.params.jugadorId || "";
   const x = req.body.x || 0;
@@ -64,20 +49,12 @@ app.post("/mokepon/:jugadorId/posicion", (req, res) => {
   const jugadorIndex = jugadores.findIndex(
     (jugador) => jugadorId === jugador.id
   );
-
   if (jugadorIndex >= 0) {
     jugadores[jugadorIndex].actualizarPosicion(x, y);
   }
-
-  const enemigos = jugadores.filter((jugador) => jugadorId != jugador.id);
-
-  res.send({
-    enemigos,
-  });
-
-  //console.log(enemigos);
+  const enemigos = jugadores.filter((jugador) => jugadorId !== jugador.id);
+  res.send({ enemigos });
 });
-
 app.listen(8080, () => {
   console.log("Servidor funcionando");
 });
