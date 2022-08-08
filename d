@@ -8,3 +8,5 @@ remote.origin.url=https://github.com/giovanyosorio/pokego.git
 remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
 branch.master.remote=origin
 branch.master.merge=refs/heads/master
+
+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
