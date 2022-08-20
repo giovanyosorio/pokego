@@ -68,6 +68,7 @@ input:checked + label {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .boton-de-ataque {
@@ -79,6 +80,7 @@ input:checked + label {
   width: 80px;
   color: white;
   font-family: 'Poppins', sans-serif;
+  user-select: none;
 }
 
 #mensajes {
@@ -128,6 +130,7 @@ input:checked + label {
   border: 2px solid white;
   color: white;
   font-family: 'Poppins', sans-serif;
+  user-select: none;
   margin:10px 0 ;
 }
 @media (max-width: 560px) {
